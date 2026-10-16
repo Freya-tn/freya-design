@@ -20,6 +20,6 @@ test('chaque couleur de tokens.js est une couleur hexadécimale à 6 chiffres', 
 test('aucun tiret cadratin dans les fichiers du paquet', () => {
   for (const f of ['tokens.js', 'tokens.d.ts', 'tokens.css', 'fonts.css', 'mui.js', 'mui.d.ts', 'DESIGN.md', 'README.md', 'CHANGELOG.md', 'LICENSE', 'specimen.html']) {
     const txt = readFileSync(new URL(`../${f}`, import.meta.url), 'utf8')
-    assert.ok(!txt.includes('—'), f)
+    assert.ok(!txt.includes('\u2014'), f)
   }
 })

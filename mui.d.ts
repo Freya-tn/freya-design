@@ -10,16 +10,17 @@ export declare const tableDensity: FreyaTokens['density']
 
 /**
  * Crée le thème Freya avec le `createTheme` du front, puis fusionne les arguments suivants
- * (locales françaises, ajustements propres au front).
+ * (locales françaises, ajustements propres au front). Typé sur le createTheme reçu : le thème renvoyé
+ * est celui de la version de MUI du front, quelle qu'elle soit (6 à 9).
  * @example
  * import { createTheme } from '@mui/material/styles'
  * import { frFR } from '@mui/material/locale'
  * import { createFreyaTheme } from '@freya/design/mui'
- * export default createFreyaTheme(createTheme, frFR)
+ * const theme = createFreyaTheme(createTheme, frFR)
  */
-export declare function createFreyaTheme<T>(
-  createTheme: (options: ThemeOptions, ...args: object[]) => T,
+export declare function createFreyaTheme<F extends (options: any, ...args: any[]) => any>(
+  createTheme: F,
   ...overrides: object[]
-): T
+): ReturnType<F>
 
 export default createFreyaTheme

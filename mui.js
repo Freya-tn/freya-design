@@ -118,6 +118,8 @@ export const freyaThemeOptions = {
           MozOsxFontSmoothing: 'grayscale',
         },
         '::selection': { backgroundColor: brand.pink200 },
+        // Liens bruts (<a>) : rose texte, comme MuiLink
+        a: { color: brand.pinkText },
       },
     },
     MuiButtonBase: {
