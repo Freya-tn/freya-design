@@ -1,0 +1,10 @@
+Copyright (c) 2026 Freya. Tous droits réservés.
+
+Usage interne Freya, code visible publiquement.
+
+Ce dépôt est public uniquement pour permettre son installation par les fronts de Freya. Sa publication ne vaut
+pas licence : aucune autorisation d'utiliser, copier, modifier ou redistribuer ce code, la charte graphique ou la
+marque Freya n'est accordée en dehors de Freya.
+
+Polices : Plus Jakarta Sans et Cormorant Garamond sont distribuées sous licence SIL Open Font License 1.1, via les
+paquets @fontsource/plus-jakarta-sans et @fontsource/cormorant-garamond (dépendances, non incluses dans ce dépôt).

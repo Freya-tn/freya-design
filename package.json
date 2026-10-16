@@ -1,0 +1,67 @@
+{
+  "name": "@freya/design",
+  "version": "1.0.0",
+  "description": "Système de design des fronts admin Freya : jetons, variables CSS, polices et thème MUI. Voir DESIGN.md.",
+  "license": "UNLICENSED",
+  "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "./tokens.js",
+  "types": "./tokens.d.ts",
+  "exports": {
+    ".": {
+      "types": "./tokens.d.ts",
+      "default": "./tokens.js"
+    },
+    "./mui": {
+      "types": "./mui.d.ts",
+      "default": "./mui.js"
+    },
+    "./tokens.css": "./tokens.css",
+    "./fonts.css": "./fonts.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "tokens.js",
+    "tokens.d.ts",
+    "tokens.css",
+    "fonts.css",
+    "mui.js",
+    "mui.d.ts",
+    "DESIGN.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:css": "node scripts/build-css.mjs",
+    "test": "node --test test/"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "5.3.0",
+    "@fontsource/plus-jakarta-sans": "5.3.0"
+  },
+  "peerDependencies": {
+    "@mui/material": ">=6 <10"
+  },
+  "peerDependenciesMeta": {
+    "@mui/material": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Freya-tn/freya-design.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/material": "6.5.0",
+    "mui9": "npm:@mui/material@9.5.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

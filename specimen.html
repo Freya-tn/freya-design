@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freya Design · spécimen</title>
+<!-- Page autonome : uniquement tokens.css et les polices fontsource (après npm install), s'ouvre hors ligne -->
+<link rel="stylesheet" href="node_modules/@fontsource/plus-jakarta-sans/latin-400.css">
+<link rel="stylesheet" href="node_modules/@fontsource/plus-jakarta-sans/latin-500.css">
+<link rel="stylesheet" href="node_modules/@fontsource/plus-jakarta-sans/latin-600.css">
+<link rel="stylesheet" href="node_modules/@fontsource/plus-jakarta-sans/latin-700.css">
+<link rel="stylesheet" href="node_modules/@fontsource/plus-jakarta-sans/latin-800.css">
+<link rel="stylesheet" href="node_modules/@fontsource/cormorant-garamond/latin-500-italic.css">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--fd-cream); color: var(--fd-ink);
+    font: var(--fd-type-body-weight) var(--fd-type-body-size)/var(--fd-type-body-line-height) var(--fd-font-sans);
+    -webkit-font-smoothing: antialiased; }
+  .shell { display: grid; grid-template-columns: var(--fd-layout-sidebar) 1fr; min-height: 100vh; }
+  aside { background: var(--fd-white); border-right: 1px solid var(--fd-line); padding: var(--fd-space-5) var(--fd-space-3); }
+  aside .app { padding: 0 var(--fd-space-3) var(--fd-space-4); }
+  aside .app b { display: block; font-size: 16px; font-weight: 800; letter-spacing: -0.3px; }
+  aside .app small { color: var(--fd-text2); font-size: 12px; }
+  .nav { display: flex; align-items: center; gap: var(--fd-space-3); height: 40px; padding: 0 var(--fd-space-3);
+    border-radius: var(--fd-radius-md); color: var(--fd-text2); font-weight: 500; text-decoration: none; }
+  .nav:hover { background: var(--fd-hover); color: var(--fd-ink); }
+  .nav.active { background: var(--fd-powder); color: var(--fd-ink); font-weight: 600; }
+  .nav.active .ico { background: var(--fd-pink-text); }
+  .nav.sub { padding-left: 48px; }
+  .ico { width: 16px; height: 16px; border-radius: 4px; background: var(--fd-text2); opacity: .7; flex: none; }
+  main { padding: var(--fd-space-8) var(--fd-space-6) var(--fd-space-16); max-width: var(--fd-layout-content); }
+  h1 { font-size: var(--fd-type-page-title-size); line-height: var(--fd-type-page-title-line-height);
+    font-weight: var(--fd-type-page-title-weight); letter-spacing: var(--fd-type-page-title-letter-spacing); margin: 0 0 var(--fd-space-1); }
+  h1 em { font-family: var(--fd-font-accent); font-style: italic; font-weight: 500; font-size: 1.15em; letter-spacing: 0; }
+  h2 { font-size: var(--fd-type-section-title-size); line-height: var(--fd-type-section-title-line-height);
+    font-weight: var(--fd-type-section-title-weight); letter-spacing: var(--fd-type-section-title-letter-spacing); margin: 0 0 var(--fd-space-4); }
+  .lead { color: var(--fd-text2); margin: 0 0 var(--fd-space-8); }
+  section { margin-bottom: var(--fd-space-10); }
+  .label { display: block; font-size: var(--fd-type-label-size); line-height: var(--fd-type-label-line-height); font-weight: 700;
+    letter-spacing: var(--fd-type-label-letter-spacing); text-transform: uppercase; color: var(--fd-pink-text); margin-bottom: var(--fd-space-2); }
+  .card { background: var(--fd-white); border: 1px solid var(--fd-line); border-radius: var(--fd-radius-lg); padding: var(--fd-space-6); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--fd-space-2); align-items: center; }
+  .grid { display: grid; gap: var(--fd-space-4); }
+  .g4 { grid-template-columns: repeat(4, 1fr); } .g2 { grid-template-columns: 1fr 1fr; } .g3 { grid-template-columns: repeat(3, 1fr); }
+  .help { font-size: var(--fd-type-help-size); line-height: var(--fd-type-help-line-height); color: var(--fd-text2); }
+  /* Couleurs */
+  .sw { display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+  .sw i { display: block; font-style: normal; height: 56px; border-radius: var(--fd-radius-md); border: 1px solid var(--fd-line); }
+  .sw b { font-weight: 600; } .sw code { color: var(--fd-text2); font-size: 11px; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--fd-space-4); }
+  /* Typo */
+  .typo div { display: grid; grid-template-columns: 180px 1fr; align-items: baseline; padding: var(--fd-space-3) 0; border-bottom: 1px solid var(--fd-line); }
+  .typo div:last-child { border-bottom: 0; }
+  /* Boutons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; border: 0; border-radius: var(--fd-radius-pill);
+    padding: 0 18px; min-height: 40px; font: 600 14px/20px var(--fd-font-sans); cursor: pointer; transition: background-color var(--fd-duration-fast); }
+  .btn--primary { background: var(--fd-pink-text); color: var(--fd-white); box-shadow: var(--fd-shadow-halo); }
+  .btn--primary:hover { background: var(--fd-pink-deep); }
+  .btn--ink { background: var(--fd-ink); color: var(--fd-white); }
+  .btn--outline { background: var(--fd-white); color: var(--fd-ink); border: 1px solid var(--fd-line-strong); }
+  .btn--outline:hover { border-color: var(--fd-ink); background: var(--fd-hover); }
+  .btn--text { background: transparent; color: var(--fd-ink); padding: 0 12px; }
+  .btn--text:hover { background: var(--fd-hover); }
+  .btn--danger { background: var(--fd-white); color: var(--fd-status-error-text); border: 1px solid var(--fd-status-error-border); }
+  .btn--sm { min-height: 32px; padding: 0 14px; font-size: 13px; }
+  :focus-visible { outline: 2px solid var(--fd-pink); outline-offset: 2px; }
+  .focus-demo { outline: 2px solid var(--fd-pink); outline-offset: 2px; }
+  /* Puces et badges */
+  .chip { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: var(--fd-radius-pill);
+    font-size: 12px; font-weight: 600; background: var(--fd-white); border: 1px solid var(--fd-line); color: var(--fd-ink); cursor: pointer; }
+  .chip.on { background: var(--fd-ink); border-color: var(--fd-ink); color: var(--fd-white); }
+  .badge { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: var(--fd-radius-pill);
+    font-size: 12px; font-weight: 600; border: 1px solid; white-space: nowrap; }
+  .b-success { color: var(--fd-status-success-text); background: var(--fd-status-success-bg); border-color: var(--fd-status-success-border); }
+  .b-warning { color: var(--fd-status-warning-text); background: var(--fd-status-warning-bg); border-color: var(--fd-status-warning-border); }
+  .b-error { color: var(--fd-status-error-text); background: var(--fd-status-error-bg); border-color: var(--fd-status-error-border); }
+  .b-info { color: var(--fd-status-info-text); background: var(--fd-status-info-bg); border-color: var(--fd-status-info-border); }
+  .b-neutral { color: var(--fd-status-neutral-text); background: var(--fd-status-neutral-bg); border-color: var(--fd-status-neutral-border); }
+  .b-brand { color: var(--fd-status-brand-text); background: var(--fd-status-brand-bg); border-color: var(--fd-status-brand-border); }
+  /* Tableau */
+  .table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--fd-white); border: 1px solid var(--fd-line);
+    border-radius: var(--fd-radius-lg); overflow: hidden; font-size: var(--fd-type-table-size); line-height: var(--fd-type-table-line-height); }
+  .table th { background: var(--fd-cream); color: var(--fd-text2); font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; text-align: left; height: var(--fd-density-header); padding: 0 var(--fd-space-4); border-bottom: 1px solid var(--fd-line); white-space: nowrap; }
+  .table td { height: var(--fd-density-standard); padding: 0 var(--fd-space-4); border-bottom: 1px solid var(--fd-line); }
+  .table tr:last-child td { border-bottom: 0; }
+  .table tbody tr:hover { background: var(--fd-hover); }
+  .table tr.sel { background: var(--fd-powder); }
+  .num { text-align: right !important; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .muted { color: var(--fd-text2); }
+  /* KPI */
+  .kpi .v { font-size: var(--fd-type-kpi-size); line-height: var(--fd-type-kpi-line-height); font-weight: 800;
+    letter-spacing: var(--fd-type-kpi-letter-spacing); font-variant-numeric: tabular-nums; margin: 2px 0; }
+  .kpi .v small { font-size: 14px; font-weight: 600; color: var(--fd-text2); letter-spacing: 0; }
+  .kpi .label { color: var(--fd-text2); }
+  .kpi.feature { background: var(--fd-gradient-powder); border-color: var(--fd-pink200); }
+  .kpi.feature .label { color: var(--fd-pink-text); }
+  /* Formulaire */
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 13px; font-weight: 600; }
+  .input { height: 40px; border: 1px solid var(--fd-line-strong); border-radius: var(--fd-radius-md); padding: 0 var(--fd-space-3);
+    font: 400 14px var(--fd-font-sans); color: var(--fd-ink); background: var(--fd-white); width: 100%; }
+  .input:hover { border-color: #B5ADB1; }
+  .input:focus, .input.focus { outline: none; border: 2px solid var(--fd-pink); padding: 0 11px; }
+  .input.err { border-color: var(--fd-status-error-solid); }
+  .err-text { font-size: 12px; color: var(--fd-status-error-text); }
+  .adorn { position: relative; } .adorn span { position: absolute; right: 12px; top: 10px; color: var(--fd-text2); font-weight: 600; }
+  .adorn .input { text-align: right; padding-right: 52px; font-variant-numeric: tabular-nums; }
+  /* Alertes, onglets, graphique */
+  .alert { display: flex; gap: var(--fd-space-3); align-items: center; border: 1px solid; border-radius: var(--fd-radius-md); padding: 10px var(--fd-space-4); font-weight: 500; }
+  .alert .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+  .tabs { display: flex; gap: var(--fd-space-6); border-bottom: 1px solid var(--fd-line); }
+  .tab { padding: 12px 0; font-weight: 600; color: var(--fd-text2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .tab.on { color: var(--fd-ink); border-color: var(--fd-pink); }
+  .bars { display: flex; align-items: flex-end; gap: var(--fd-space-6); height: 160px; padding: 0 var(--fd-space-2); border-bottom: 1px solid var(--fd-line);
+    background: repeating-linear-gradient(to top, var(--fd-chart-grid) 0 1px, transparent 1px 40px); }
+  .bars .grp { display: flex; align-items: flex-end; gap: 2px; flex: 1; height: 100%; }
+  .bars i { flex: 1; border-radius: 4px 4px 0 0; }
+  .legend { display: flex; gap: var(--fd-space-4); flex-wrap: wrap; margin-top: var(--fd-space-3); font-size: 12px; color: var(--fd-text2); }
+  .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; background: var(--c); vertical-align: -1px; }
+  .axis { display: flex; justify-content: space-around; font-size: 12px; color: var(--fd-chart-axis); margin-top: 6px; }
+  .empty { text-align: center; padding: var(--fd-space-10) var(--fd-space-6); }
+  .empty .ico { width: 40px; height: 40px; border-radius: 12px; margin: 0 auto var(--fd-space-3); background: var(--fd-faint); opacity: 1; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside>
+    <div class="app"><b>Freya Hub</b><small>Comptabilité</small></div>
+    <a class="nav" href="#"><span class="ico"></span>Commandes</a>
+    <a class="nav sub active" href="#">Toutes les commandes</a>
+    <a class="nav sub" href="#">Statistiques</a>
+    <a class="nav" href="#"><span class="ico"></span>Paiements</a>
+    <a class="nav" href="#"><span class="ico"></span>Clients</a>
+    <a class="nav" href="#"><span class="ico"></span>Factures</a>
+  </aside>
+
+  <main>
+    <span class="label">Système de design admin · v1.0.0</span>
+    <h1>Freya <em>Design.</em></h1>
+    <p class="lead">Spécimen des jetons et composants des fronts admin. N'utilise que tokens.css et les polices de la charte.</p>
+
+    <section>
+      <h2>Couleurs</h2>
+      <span class="label">Marque et neutres</span>
+      <div class="swatches" style="margin-bottom:24px">
+        <div class="sw"><i style="background:var(--fd-pink)"></i><b>Rose marque</b><code>#EE3388 · accents</code></div>
+        <div class="sw"><i style="background:var(--fd-pink-text)"></i><b>Rose texte</b><code>#C21868 · texte, principal</code></div>
+        <div class="sw"><i style="background:var(--fd-pink-deep)"></i><b>Rose profond</b><code>#A3135A · survol</code></div>
+        <div class="sw"><i style="background:var(--fd-powder)"></i><b>Poudré</b><code>#FDEBF1</code></div>
+        <div class="sw"><i style="background:var(--fd-pink200)"></i><b>Rose 200</b><code>#F9D9E5</code></div>
+        <div class="sw"><i style="background:var(--fd-ink)"></i><b>Encre</b><code>#111111</code></div>
+        <div class="sw"><i style="background:var(--fd-text2)"></i><b>Texte 2</b><code>#6B6468</code></div>
+        <div class="sw"><i style="background:var(--fd-faint)"></i><b>Discret</b><code>#CFC8CB · pas de texte</code></div>
+        <div class="sw"><i style="background:var(--fd-line)"></i><b>Filet</b><code>#E9E4E6</code></div>
+        <div class="sw"><i style="background:var(--fd-cream)"></i><b>Crème</b><code>#FBF8F5 · fond</code></div>
+      </div>
+      <span class="label">États (texte sur fond, AA)</span>
+      <div class="swatches" style="margin-bottom:24px">
+        <div class="sw"><i class="b-success" style="display:grid;place-items:center;font-weight:700">5,87:1</i><b>Succès</b><code>#146B38 / #E8F5EE</code></div>
+        <div class="sw"><i class="b-warning" style="display:grid;place-items:center;font-weight:700">7,24:1</i><b>Avertissement</b><code>#7A4318 / #FDF3E7</code></div>
+        <div class="sw"><i class="b-error" style="display:grid;place-items:center;font-weight:700">7,58:1</i><b>Erreur</b><code>#8A2A24 / #FCEDEC</code></div>
+        <div class="sw"><i class="b-info" style="display:grid;place-items:center;font-weight:700">7,03:1</i><b>Info</b><code>#1F5673 / #EAF2F6</code></div>
+        <div class="sw"><i class="b-neutral" style="display:grid;place-items:center;font-weight:700">5,13:1</i><b>Neutre</b><code>#6B6468 / #F4F1F2</code></div>
+        <div class="sw"><i class="b-brand" style="display:grid;place-items:center;font-weight:700">5,06:1</i><b>Marque</b><code>#C21868 / #FDEBF1</code></div>
+      </div>
+      <span class="label">Graphiques (ordre d'usage)</span>
+      <div class="swatches">
+        <div class="sw"><i style="background:var(--fd-chart-1)"></i><b>1</b><code>#EE3388</code></div>
+        <div class="sw"><i style="background:var(--fd-chart-2)"></i><b>2</b><code>#3A8FC0</code></div>
+        <div class="sw"><i style="background:var(--fd-chart-3)"></i><b>3</b><code>#C26A1E</code></div>
+        <div class="sw"><i style="background:var(--fd-chart-4)"></i><b>4</b><code>#8350B5</code></div>
+        <div class="sw"><i style="background:var(--fd-chart-5)"></i><b>5</b><code>#4E8A35</code></div>
+        <div class="sw"><i style="background:var(--fd-chart-other)"></i><b>Autres</b><code>#CFC8CB</code></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Typographie</h2>
+      <div class="card typo">
+        <div><span class="help">Titre de page · 24/32 800</span><span style="font-size:24px;line-height:32px;font-weight:800;letter-spacing:-0.4px">Toutes les commandes</span></div>
+        <div><span class="help">Titre de section · 18/26 700</span><span style="font-size:18px;font-weight:700;letter-spacing:-0.2px">Paiements des délégués</span></div>
+        <div><span class="help">Titre de carte · 15/22 700</span><span style="font-size:15px;font-weight:700">Encaissé ce mois</span></div>
+        <div><span class="help">Corps · 14/22 400</span><span>La commande sera facturée à la clôture, une seule facture pour toutes les livraisons.</span></div>
+        <div><span class="help">Tableau · 13/20 tabulaire</span><span style="font-size:13px;font-variant-numeric:tabular-nums">1 250,000 TND · 318,450 TND · 12 004,100 TND</span></div>
+        <div><span class="help">Libellé · 11/16 700</span><span class="label" style="margin:0">Informations client</span></div>
+        <div><span class="help">Aide · 12/18 400</span><span class="help">Le matricule fiscal figure sur la facture.</span></div>
+        <div><span class="help">Accent · Cormorant 500</span><span style="font-size:24px;font-weight:800">Bonjour <em style="font-family:var(--fd-font-accent);font-weight:500;font-size:1.15em">Amira.</em></span></div>
+      </div>
+    </section>
+
+    <section class="grid g2">
+      <div>
+        <h2>Boutons</h2>
+        <div class="card">
+          <div class="row" style="margin-bottom:16px">
+            <button class="btn btn--primary">Créer la commande</button>
+            <button class="btn btn--ink">Appliquer</button>
+            <button class="btn btn--outline">Exporter</button>
+            <button class="btn btn--text">Voir tout</button>
+          </div>
+          <div class="row">
+            <button class="btn btn--danger">Annuler la facture</button>
+            <button class="btn btn--outline btn--sm">Petit</button>
+            <button class="btn btn--outline focus-demo">Focus clavier</button>
+          </div>
+          <p class="help" style="margin:16px 0 0">Un seul bouton rose par écran. Focus : anneau rose 2 px.</p>
+        </div>
+      </div>
+      <div>
+        <h2>Puces et badges</h2>
+        <div class="card">
+          <span class="label">Filtres</span>
+          <div class="row" style="margin-bottom:16px">
+            <span class="chip on">Toutes</span><span class="chip">À traiter</span><span class="chip">En retard</span><span class="chip">Payées</span>
+          </div>
+          <span class="label">Statuts</span>
+          <div class="row">
+            <span class="badge b-success">Payée</span><span class="badge b-warning">En attente</span><span class="badge b-error">En retard</span>
+            <span class="badge b-info">Envoyée</span><span class="badge b-neutral">Brouillon</span><span class="badge b-neutral">Annulée</span><span class="badge b-brand">Nouvelle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Indicateurs</h2>
+      <div class="grid g4">
+        <div class="card kpi"><span class="label">Encaissé ce mois</span><div class="v">48 320,500 <small>TND</small></div><span class="help">+12 % sur 30 jours</span></div>
+        <div class="card kpi"><span class="label">À encaisser</span><div class="v">17 904,000 <small>TND</small></div><span class="help">23 factures</span></div>
+        <div class="card kpi"><span class="label">En retard</span><div class="v">6</div><span class="help">dont 2 de plus de 30 jours</span></div>
+        <div class="card kpi feature"><span class="label">Objectif d'octobre</span><div class="v">92 <small>%</small></div><span class="help">Mise en avant, une par écran</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Tableau</h2>
+      <div class="tabs" style="margin-bottom:16px"><span class="tab on">Toutes (128)</span><span class="tab">À traiter (4)</span><span class="tab">Ouvertes (3)</span></div>
+      <table class="table">
+        <thead><tr><th>Facture</th><th>Client</th><th>Date</th><th>Statut</th><th class="num">Montant TTC</th><th></th></tr></thead>
+        <tbody>
+          <tr><td><b>F-2026-0142</b></td><td>Pharmacie El Manar<div class="help">Tunis</div></td><td>14/10/2026</td><td><span class="badge b-success">Payée</span></td><td class="num">1 250,000 TND</td><td class="num"><button class="btn btn--text btn--sm">Voir</button></td></tr>
+          <tr class="sel"><td><b>F-2026-0141</b></td><td>Parapharmacie Lac 2<div class="help">Les Berges du Lac</div></td><td>12/10/2026</td><td><span class="badge b-warning">En attente</span></td><td class="num">318,450 TND</td><td class="num"><button class="btn btn--text btn--sm">Voir</button></td></tr>
+          <tr><td><b>F-2026-0139</b></td><td>Beauty Store Sousse<div class="help">Sousse</div></td><td>02/09/2026</td><td><span class="badge b-error">En retard</span></td><td class="num">12 004,100 TND</td><td class="num"><button class="btn btn--text btn--sm">Voir</button></td></tr>
+          <tr><td><b>F-2026-0137</b></td><td>Pharmacie Ennasr<div class="help">Ariana</div></td><td>28/08/2026</td><td><span class="badge b-neutral">Annulée</span></td><td class="num muted">540,000 TND</td><td class="num"><button class="btn btn--text btn--sm">Voir</button></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid g2">
+      <div>
+        <h2>Formulaire</h2>
+        <div class="card grid" style="gap:16px">
+          <span class="label" style="margin:0">Informations client</span>
+          <div class="field"><label for="c">Client</label><input id="c" class="input" value="Pharmacie El Manar"></div>
+          <div class="field"><label for="m">Montant</label><div class="adorn"><input id="m" class="input focus" value="1 250,000"><span>TND</span></div><span class="help">Focus : bordure rose 2 px</span></div>
+          <div class="field"><label for="e">Matricule fiscal</label><input id="e" class="input err" value="1234"><span class="err-text">Format attendu : 1234567/A/M/000</span></div>
+          <div class="row" style="justify-content:flex-end"><button class="btn btn--outline">Annuler</button><button class="btn btn--ink">Enregistrer</button></div>
+        </div>
+      </div>
+      <div>
+        <h2>Alertes et graphique</h2>
+        <div class="grid" style="gap:12px;margin-bottom:16px">
+          <div class="alert b-warning"><span class="dot" style="background:var(--fd-status-warning-solid)"></span>3 factures arrivent à échéance cette semaine.</div>
+          <div class="alert b-error"><span class="dot" style="background:var(--fd-status-error-solid)"></span>Envoi à Freya Pro impossible. Réessayez.</div>
+          <div class="alert b-success"><span class="dot" style="background:var(--fd-status-success-solid)"></span>Commande créée et facturée.</div>
+        </div>
+        <div class="card">
+          <span class="label" style="color:var(--fd-text2)">Ventes par canal (k TND)</span>
+          <div class="bars">
+            <div class="grp"><i style="height:70%;background:var(--fd-chart-1)"></i><i style="height:45%;background:var(--fd-chart-2)"></i><i style="height:30%;background:var(--fd-chart-3)"></i></div>
+            <div class="grp"><i style="height:82%;background:var(--fd-chart-1)"></i><i style="height:50%;background:var(--fd-chart-2)"></i><i style="height:26%;background:var(--fd-chart-3)"></i></div>
+            <div class="grp"><i style="height:90%;background:var(--fd-chart-1)"></i><i style="height:58%;background:var(--fd-chart-2)"></i><i style="height:34%;background:var(--fd-chart-3)"></i></div>
+          </div>
+          <div class="axis"><span>Août</span><span>Sept.</span><span>Oct.</span></div>
+          <div class="legend"><span style="--c:var(--fd-chart-1)">Pharmacies</span><span style="--c:var(--fd-chart-2)">Boutique en ligne</span><span style="--c:var(--fd-chart-3)">Délégués</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>État vide</h2>
+      <div class="card empty"><div class="ico"></div><b style="font-size:16px">Aucune facture pour ce filtre</b><p class="help" style="font-size:14px;margin:4px 0 16px">Modifiez les filtres ou la période.</p><button class="btn btn--outline">Effacer les filtres</button></div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

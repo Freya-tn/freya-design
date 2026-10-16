@@ -1,0 +1,9 @@
+/* freya-design : polices de la charte (fontsource, licence OFL), sous-ensemble latin (couvre le français).
+   Plus Jakarta Sans 400 à 800 pour toute l'interface ; Cormorant Garamond italique 500 pour un mot d'accent
+   dans un grand titre (voir DESIGN.md, section 3). Importé tel quel par le bundler du front (Vite, Next...). */
+@import "@fontsource/plus-jakarta-sans/latin-400.css";
+@import "@fontsource/plus-jakarta-sans/latin-500.css";
+@import "@fontsource/plus-jakarta-sans/latin-600.css";
+@import "@fontsource/plus-jakarta-sans/latin-700.css";
+@import "@fontsource/plus-jakarta-sans/latin-800.css";
+@import "@fontsource/cormorant-garamond/latin-500-italic.css";
