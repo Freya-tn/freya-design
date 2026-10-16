@@ -74,3 +74,9 @@ for (const [label, pkg] of versions) {
     assert.match(html, /1 250,000 TND/)
   })
 }
+
+test('Bouton rose désactivé : pas de halo (la règle colorSecondary l\'emporterait sinon)', () => {
+  const rule = freyaThemeOptions.components.MuiButton.styleOverrides.root['&.MuiButton-contained.MuiButton-colorSecondary']
+  assert.equal(rule.boxShadow, tokens.shadow.halo)
+  assert.deepEqual(rule['&.Mui-disabled'], { boxShadow: 'none' })
+})

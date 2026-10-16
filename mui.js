@@ -153,6 +153,8 @@ export const freyaThemeOptions = {
             color: neutral.white,
             boxShadow: shadow.halo,
             '&:hover': { backgroundColor: brand.pinkDeep, boxShadow: shadow.halo },
+            // Désactivé : pas de halo (cette règle à 3 classes l'emporterait sur `&.Mui-disabled`)
+            '&.Mui-disabled': { boxShadow: 'none' },
           },
           // Danger
           '&.MuiButton-contained.MuiButton-colorError': {
